@@ -1,0 +1,30 @@
+<h1>用户列表</h1>
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>用户名</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '创建用户', new_user_path %>
